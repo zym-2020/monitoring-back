@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    main:
+      jdbc-url: jdbc:postgresql://localhost:5432/monitoring?stringtype=unspecified
+      username: postgres
+      password: 123
+      driver-class-name: org.postgresql.Driver
+    manage:
+      jdbc-url: jdbc:postgresql://localhost:5432/manage?stringtype=unspecified
+      username: postgres
+      password: 123
+      driver-class-name: org.postgresql.Driver
+
+pythonCMD:
+  python
+
+#pg相关参数
+pgUser:
+  postgres
+pgPassword:
+  123
+pgHost:
+  localhost
+pgPort:
+  5432
+
+
+#文件路径
+tempPath:
+  E:/monitoring/temp/
+binPath:
+  E:/monitoring/bin/
+picturePath:
+  E:/monitoring/resource/picture/

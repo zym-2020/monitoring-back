@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nnu.edu.back.dao.manage.StationMapper">
+    <insert id="addStation">
+        <if test="station.id != null">
+            insert into station values(#{station.id}::uuid, #{station.name}, #{station.department}, #{station.description}, #{station.lon}, #{station.lat}, #{avatar})
+        </if>
+        <if test="station.id == null">
+            insert into station values(default, #{station.name}, #{station.department}, #{station.description}, #{station.lon}, #{station.lat}, #{avatar})
+        </if>
+    </insert>
+
+    <select id="getAllStation" resultType="java.util.Map">
+        select id, name, department, description, lon, lat, avatar from station
+    </select>
+
+</mapper>

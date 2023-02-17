@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="nnu.edu.back.dao.manage.TableManageMapper">
+    <select id="findAllTablesInfo" resultType="java.util.Map">
+        select id, table_name as "tableName", type, database_type as "databaseType" from table_list
+    </select>
+
+    <insert id="addRecord">
+        insert into table_list values(#{id}::uuid, #{tableName}, #{type}, #{databaseType})
+    </insert>
+
+    <delete id="delRecord">
+        delete from table_list where id::text = #{id}
+    </delete>
+</mapper>
