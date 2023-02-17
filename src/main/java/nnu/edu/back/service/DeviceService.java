@@ -8,5 +8,5 @@ package nnu.edu.back.service;
  * @Description:
  */
 public interface DeviceService {
-    void initDevice(String folderName, String name, Double lon, Double lat, String stationId, String description, String avatar);
+    String initDevice(String folderName, String name, Double lon, Double lat, String stationId, String description, String avatar);
 }

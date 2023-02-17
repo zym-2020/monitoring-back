@@ -34,7 +34,6 @@ public class DeviceController {
         String stationId = jsonObject.getString("stationId");
         String description = jsonObject.getString("description");
         String avatar = jsonObject.getString("avatar");
-        deviceService.initDevice(folderName, name, lon, lat, stationId, description, avatar);
-        return ResultUtils.success();
+        return ResultUtils.success(deviceService.initDevice(folderName, name, lon, lat, stationId, description, avatar));
     }
 }

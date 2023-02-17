@@ -3,10 +3,10 @@
 <mapper namespace="nnu.edu.back.dao.manage.StationMapper">
     <insert id="addStation">
         <if test="station.id != null">
-            insert into station values(#{station.id}::uuid, #{station.name}, #{station.department}, #{station.description}, #{station.lon}, #{station.lat}, #{avatar})
+            insert into station values(#{station.id}::uuid, #{station.name}, #{station.department}, #{station.description}, #{station.lon}, #{station.lat}, #{station.avatar})
         </if>
         <if test="station.id == null">
-            insert into station values(default, #{station.name}, #{station.department}, #{station.description}, #{station.lon}, #{station.lat}, #{avatar})
+            insert into station values(default, #{station.name}, #{station.department}, #{station.description}, #{station.lon}, #{station.lat}, #{station.avatar})
         </if>
     </insert>
 

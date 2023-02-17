@@ -13,4 +13,6 @@ public interface UploadService {
     String uploadPackage(MultipartFile file);
 
     void uploadParamScript(MultipartFile file, String deviceId, String schemaId);
+
+    String uploadPicture(MultipartFile file);
 }

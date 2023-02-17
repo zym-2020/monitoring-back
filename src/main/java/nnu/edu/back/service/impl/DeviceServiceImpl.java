@@ -44,7 +44,7 @@ public class DeviceServiceImpl implements DeviceService {
     DeviceMapper deviceMapper;
 
     @Override
-    public void initDevice(String folderName, String name, Double lon, Double lat, String stationId, String description, String avatar) {
+    public String initDevice(String folderName, String name, Double lon, Double lat, String stationId, String description, String avatar) {
         String path = tempPath + folderName + "/config.xml";
         DeviceXmlConfig deviceXmlConfig = FileUtil.parseXML(path);
         if (deviceXmlConfig == null) {
@@ -98,5 +98,6 @@ public class DeviceServiceImpl implements DeviceService {
         }
         Device device = new Device(deviceXmlConfig.getId(), name, lon, lat, stationId, description, avatar);
         deviceMapper.addDevice(device);
+        return device.getId();
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.UUID;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,6 +23,9 @@ public class UploadServiceImpl implements UploadService {
 
     @Value("${binPath}")
     String binPath;
+
+    @Value("${picturePath}")
+    String picturePath;
 
     @Override
     public String uploadPackage(MultipartFile file) {
@@ -42,5 +46,14 @@ public class UploadServiceImpl implements UploadService {
             f.mkdirs();
         }
         FileUtil.unpack(path, binPath + deviceId + "/param/" + schemaId);
+    }
+
+    @Override
+    public String uploadPicture(MultipartFile file) {
+        String uuid = UUID.randomUUID().toString();
+        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+        String path = picturePath + uuid + suffix;
+        FileUtil.uploadFile(file, path);
+        return uuid + suffix;
     }
 }

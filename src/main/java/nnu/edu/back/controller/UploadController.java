@@ -33,4 +33,9 @@ public class UploadController {
         uploadService.uploadParamScript(file, deviceId, schemaId);
         return ResultUtils.success();
     }
+
+    @RequestMapping(value = "/uploadPicture", method = RequestMethod.POST)
+    public JsonResult uploadPicture(@RequestParam MultipartFile file) {
+        return ResultUtils.success(uploadService.uploadPicture(file));
+    }
 }
